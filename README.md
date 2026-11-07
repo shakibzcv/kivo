@@ -1,125 +1,156 @@
-# Turborepo starter
+<div align="center">
 
-This Turborepo starter is maintained by the Turborepo core team.
+<img src="./assets/logo.svg" alt="Kivo Logo" width="120" />
 
-## Using this example
+# Kivo
 
-Run the following command:
+**A high-performance modern monorepo powering web, desktop, mobile, documentation, and backend API services.**
 
-```sh
-npx create-turbo@latest
+[![Turborepo](https://img.shields.io/badge/Turborepo-2.x-000000?logo=turborepo&logoColor=white)](https://turborepo.org)
+[![Next.js](https://img.shields.io/badge/Next.js-16.x-black?logo=next.js&logoColor=white)](https://nextjs.org)
+[![Electron](https://img.shields.io/badge/Electron-30.x-47848F?logo=electron&logoColor=white)](https://electronjs.org)
+[![Expo](https://img.shields.io/badge/Expo-57.x-000020?logo=expo&logoColor=white)](https://expo.dev)
+[![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react&logoColor=black)](https://reactnative.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![pnpm](https://img.shields.io/badge/pnpm-11.x-F69220?logo=pnpm&logoColor=white)](https://pnpm.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+
+</div>
+
+---
+
+## 📌 Overview
+
+**Kivo** is an enterprise-grade fullstack ecosystem engineered with **Turborepo** and **pnpm workspaces**. It brings together web applications, native desktop applications, cross-platform mobile apps, shared UI design systems, and modular backend API services (with PostgreSQL pooling, Google GenAI Gemini, and S3 object storage) in a unified, type-safe repository.
+
+---
+
+## 🏗️ Monorepo Architecture
+
+```
+kivo/
+├── apps/
+│   ├── web/               # Next.js 16 Web Application with Tailwind CSS v4 & Lucide (Port 3000)
+│   ├── desktop/           # Electron 30 + Vite + React 19 Desktop Client
+│   ├── mobile/            # Expo SDK 57 & React Native Mobile App (iOS / Android / Web)
+│   └── api/               # Express 5 + PostgreSQL (pg) + Gemini AI + S3 Storage + Google OAuth (Port 5000)
+├── packages/
+│   ├── ui/                # Shared 60+ shadcn UI Component Library (@repo/ui)
+│   ├── typescript-config/ # Monorepo TypeScript presets (@repo/typescript-config)
+│   └── eslint-config/     # Monorepo ESLint presets (@repo/eslint-config)
+├── assets/                # Official brand identity & vector assets
+├── .github/               # Issue templates, PR template & automated CI workflows
+└── .vscode/               # Recommended workspace settings & extensions
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages:
+## 🚀 Applications & Packages
 
-### Apps and Packages
+### 📱 Applications
 
-- `@repo/ui`: a stub React component library
-- `@repo/eslint-config`: `eslint` configurations (includes `@next/eslint-plugin-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+| Application   | Technology Stack                                                                      | Description                                                                      | Dev Command                  | Port / Output           |
+| :------------ | :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------- | :--------------------------- | :---------------------- |
+| **`web`**     | Next.js 16 (App Router), React 19, Tailwind CSS v4                                    | High-performance responsive web client                                           | `pnpm --filter web dev`      | `http://localhost:3000` |
+| **`desktop`** | Electron 30, Vite 5, React 19, Tailwind CSS v4                                        | Native cross-platform desktop application                                        | `pnpm --filter desktop dev`  | Electron Desktop Window |
+| **`mobile`**  | Expo SDK 57, React Native 0.86, Expo Router                                           | Cross-platform mobile app (iOS, Android, Web)                                    | `pnpm --filter mobile start` | Expo Metro Bundler      |
+| **`api`**     | Express 5, PostgreSQL (`pg`), Google GenAI (`@google/genai`), AWS S3 SDK, Passport.js | REST API service with database pooling, Gemini AI text/streaming, and S3 storage | `pnpm --filter api dev`      | `http://localhost:5000` |
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### 📦 Shared Packages
 
-### Utilities
+- **`@repo/ui`**: Centralized component library featuring 60+ shadcn UI components built with OKLCH theme tokens, accessible primitives, and Tailwind CSS v4 compatibility.
+- **`@repo/typescript-config`**: Centralized TypeScript configurations (`base.json`, `nextjs.json`, `react-library.json`).
+- **`@repo/eslint-config`**: Shared ESLint rules (`base`, `next-js`, `react-internal`).
 
-This Turborepo has some additional tools already setup for you:
+---
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## 🛠️ Prerequisites
 
-### Build
+Ensure the following tools are installed on your environment:
 
-To build all apps and packages, run the following command:
+- **Node.js**: `>= 24.0.0`
+- **pnpm**: `>= 11.0.0` (Enable via `corepack enable pnpm` or install globally via `npm install -g pnpm`)
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+---
 
-```sh
-cd my-turborepo
-turbo build
+## ⚡ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/shakibzcv/kivo.git
+cd kivo
 ```
 
-Without global `turbo`, use your package manager:
+### 2. Install dependencies
 
-```sh
-cd my-turborepo
-npx turbo build
-pnpm exec turbo build
-pnpm exec turbo build
+```bash
+pnpm install
 ```
 
-### Develop
+### 3. Start development servers
 
-To develop all apps and packages, run the following command:
+Run all applications and services in parallel:
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
+```bash
+pnpm dev
 ```
 
-Without global `turbo`, use your package manager:
+Or target individual applications:
 
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
+```bash
+# Start Web client
+pnpm --filter web dev
+
+# Start Desktop client
+pnpm --filter desktop dev
+
+# Start Mobile app
+pnpm --filter mobile start
+
+# Start Backend API
+pnpm --filter api dev
 ```
 
-### Remote Caching
+---
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+## 📜 Available Scripts
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+| Script                 | Command                               | Description                                         |
+| :--------------------- | :------------------------------------ | :-------------------------------------------------- |
+| **`pnpm dev`**         | `turbo run dev`                       | Start development servers across all workspaces     |
+| **`pnpm build`**       | `turbo run build`                     | Build all apps and packages with dependency caching |
+| **`pnpm lint`**        | `turbo run lint`                      | Run ESLint across all projects                      |
+| **`pnpm check-types`** | `turbo run check-types`               | Run static TypeScript type checks                   |
+| **`pnpm format`**      | `prettier --write "**/*.{ts,tsx,md}"` | Format source code and documentation                |
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+---
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+## 🤝 Contributing
 
-```sh
-cd my-turborepo
-turbo login
-```
+We welcome contributions from the community! Please read our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting pull requests.
 
-Without global `turbo`, use your package manager:
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/amazing-feature`).
+3. Commit your changes using conventional commit messages (`git commit -m 'feat: add amazing feature'`).
+4. Push to the branch (`git push origin feature/amazing-feature`).
+5. Open a Pull Request using our [PR Template](.github/pull_request_template.md).
 
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
+---
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 📬 Contact & Support
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+For questions, collaborations, feature proposals, or security inquiries:
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+- **Author**: Shakib Khan
+- **GitHub**: [@shakibzcv](https://github.com/shakibzcv)
+- **Email**: [ichshakib@gmail.com](mailto:ichshakib@gmail.com)
+- **Repository**: [https://github.com/shakibzcv/kivo](https://github.com/shakibzcv/kivo)
+- **Issues & Discussions**: [GitHub Issues](https://github.com/shakibzcv/kivo/issues)
 
-```sh
-turbo link
-```
+---
 
-Without global `turbo`:
+## 📄 License
 
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

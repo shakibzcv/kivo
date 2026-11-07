@@ -1,0 +1,54 @@
+name: "✨ Feature Request"
+description: Suggest an idea or new feature for Kivo
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement for Kivo! Please share your idea using the format below.
+
+  - type: dropdown
+    id: workspace
+    attributes:
+      label: Target Workspace / App
+      description: Where should this feature be introduced?
+      multiple: true
+      options:
+        - "apps/web (Next.js)"
+        - "apps/mobile (Expo / React Native)"
+        - "apps/docs (Next.js)"
+        - "apps/api (Backend Service)"
+        - "packages/ui (@repo/ui)"
+        - "Shared Packages / Tooling"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem or limitation? Please describe.
+      placeholder: I'm always frustrated when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or screenshots about the feature request here.

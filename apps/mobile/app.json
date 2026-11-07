@@ -12,7 +12,7 @@
         "light": "./assets/icons/icon.png",
         "dark": "./assets/icons/icon-dark.png"
       },
-      "bundleIdentifier": "com.ichshakib.kivo"
+      "bundleIdentifier": "com.shakibzcv.kivo"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,7 +25,7 @@
         "color": "#ffffff"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.ichshakib.kivo"
+      "package": "com.shakibzcv.kivo"
     },
     "web": {
       "output": "static",
@@ -63,6 +63,6 @@
         "projectId": "9a5dcb31-3f14-428c-a9f8-580ae3f32544"
       }
     },
-    "owner": "ichshakib"
+    "owner": "shakibzcv"
   }
 }

@@ -1,0 +1,74 @@
+name: "🐛 Bug Report"
+description: File a bug report to help us improve Kivo
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue in Kivo! Please fill out the form below as completely as possible.
+
+  - type: dropdown
+    id: workspace
+    attributes:
+      label: Affected Workspace / App
+      description: Which part of the monorepo does this issue affect?
+      multiple: true
+      options:
+        - "apps/web (Next.js)"
+        - "apps/mobile (Expo / React Native)"
+        - "apps/docs (Next.js)"
+        - "apps/api (Backend Service)"
+        - "packages/ui (@repo/ui)"
+        - "packages/typescript-config"
+        - "packages/eslint-config"
+        - "Root / Tooling / Turborepo"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Provide detailed steps to reproduce the behavior.
+      placeholder: |
+        1. Run '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Logs
+      description: If applicable, add screenshots or console output / terminal logs to help explain your problem.
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Node version, OS, browser / device, pnpm version.
+      value: |
+        - OS: [e.g. Windows / macOS / Linux / iOS / Android]
+        - Node Version: [e.g. 24.x]
+        - pnpm Version: [e.g. 11.25.0]
+    validations:
+      required: false

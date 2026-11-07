@@ -147,7 +147,7 @@ export const Navbar = () => {
             </Link>
           )}
           <a
-            href="https://github.com/ichshakib/kivo"
+            href="https://github.com/shakibzcv/kivo"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
