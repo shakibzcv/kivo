@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+nodeLinker: hoisted
 overrides:
   "@babel/core": "^7.26.9"
   "@babel/generator": "^7.26.9"
